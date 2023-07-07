@@ -13,6 +13,12 @@ class CategoryController extends Controller
         return view('categories.category', ['categories' => $categories]);
     }
 
+    public function categoryDataGet()
+    {
+        $categories = Category::all();
+        return response()->json($categories);
+    }
+
     public function addView()
     {
         return view('categories.category_add');
@@ -23,6 +29,12 @@ class CategoryController extends Controller
         $category->create($request->all());
 
         return redirect()->route('category.get');
+    }
+
+    public function categoryDataadd(Category $category, Request $request)
+    {
+        $category->create($request->all());
+        return response()->json("success");
     }
 
     public function editView(Category $category)
