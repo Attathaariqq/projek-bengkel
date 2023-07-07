@@ -25,6 +25,6 @@
 
 
 @include("includes.js")
-@yield("custome-js")
+@yield("custom-js")
 </body>
 </html>

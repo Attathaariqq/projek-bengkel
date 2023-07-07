@@ -8,7 +8,7 @@
     <a href="{{ route('category.add.view') }}" class="btn btn-primary mb-3">Tambah Kategori Baru</a>
 
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table table-striped" id="category">
             <thead>
                 <tr>
                     <th>Nama</th>
@@ -33,4 +33,9 @@
             </tbody>
         </table>
     </div>
+@endsection
+@section('custom-js')
+    <script>
+        $("#category").DataTable();
+    </script>
 @endsection
