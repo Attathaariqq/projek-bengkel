@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
-
+<link rel="stylesheet" href="{{ asset('assets/css/jquery.dataTables.min.css') }}">
 <style>
     .bd-placeholder-img {
         font-size: 1.125rem;
