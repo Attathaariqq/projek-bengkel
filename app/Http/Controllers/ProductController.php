@@ -8,7 +8,7 @@ class ProductController extends Controller
 {
     public function get()
     {
-
+        return view('products.products');
     }
 
     public function addView()
