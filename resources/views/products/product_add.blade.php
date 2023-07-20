@@ -1,4 +1,4 @@
-@extends('master')
+`@extends('master')
 @section('title', 'Tambah Produk')
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -19,7 +19,11 @@
         <div class="form-group mb-3`">
             <label>Nama Produk <span class="text-danger">*</span></label>
             <input type="text" class="form-control" required placeholder="ex: Servis" name="name" value="">
+            <label>Harga <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" required placeholder="ex: 10000" name="price" value="">
+            <label>Jumlah <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" required placeholder="ex: 5" name="qty" value="">
         </div>
         <button class="btn btn-primary mt-3 w-100">Edit</button>
     </form>
-@endsection
+@endsection`
