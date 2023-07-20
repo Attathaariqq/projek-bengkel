@@ -10,7 +10,8 @@ class ProductController extends Controller
 {
     public function get()
     {
-        return view('products.product');
+        $products = Product::all();
+        return view('products.product' , ['products' => $products]);
     }
 
     public function addView()
@@ -31,13 +32,15 @@ class ProductController extends Controller
         return view('products.products');
     }
 
-    public function edit()
+    public function edit(Product $product, Request $request)
     {
-
+        $product->update($request->all());
+        return redirect()->route('product.get');
     }
 
-    public function delete()
+    public function delete(Product $product)
     {
-
+        $product->delete();
+        return redirect()->route('product.get');
     }
 }

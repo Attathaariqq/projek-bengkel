@@ -16,7 +16,20 @@
                 </tr>
             </thead>
             <tbody>
-                
+            @foreach($products as $product)
+                    <tr>
+                        <td>{{ $product->name }}</td>
+                        <td>
+                            <a href="{{ route('product.edit.view', $product->id) }}" class="btn btn-warning">Edit</a>
+                            ||
+                            <form action="{{ route("product.delete", $product->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
