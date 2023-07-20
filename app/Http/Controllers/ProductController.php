@@ -13,7 +13,7 @@ class ProductController extends Controller
 
     public function addView()
     {
-
+        return view('products.product_add');
     }
 
     public function add()
@@ -23,7 +23,7 @@ class ProductController extends Controller
 
     public function editView()
     {
-
+        return view('products.products');
     }
 
     public function edit()
