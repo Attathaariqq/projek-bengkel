@@ -9,11 +9,11 @@
         @csrf
         <div class="form-group mb-3`">
             <label>Kategori Produk <span class="text-danger">*</span></label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="form-select" name="categories_id" required>
+                <option selected>Pilih Kategori Produk</option>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group mb-3`">

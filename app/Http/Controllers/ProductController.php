@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,7 +14,8 @@ class ProductController extends Controller
 
     public function addView()
     {
-        return view('products.product_add');
+        $categories = Category::all();
+        return view('products.product_add', ['categories' => $categories]);
     }
 
     public function add()
