@@ -27,9 +27,10 @@ class ProductController extends Controller
         return redirect()->route('product.get');
     }
 
-    public function editView()
+    public function editView(Product $product)
     {
-        return view('products.products');
+        $categories = Category::all();
+        return view('products.product_edit' , ['product' => $product,'categories' => $categories]);
     }
 
     public function edit(Product $product, Request $request)

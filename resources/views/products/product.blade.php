@@ -12,6 +12,8 @@
             <thead>
                 <tr>
                     <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -19,6 +21,8 @@
             @foreach($products as $product)
                     <tr>
                         <td>{{ $product->name }}</td>
+                        <td>Rp.{{ number_format($product->price, 0) }}</td>
+                        <td>{{ $product->qty }}</td>
                         <td>
                             <a href="{{ route('product.edit.view', $product->id) }}" class="btn btn-warning">Edit</a>
                             ||
