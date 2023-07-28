@@ -11,13 +11,16 @@
 </head>
 <body>
 
+@if(!Request::is("login") && !Request::is("register"))
 @include('includes.navbar')
+@endif
 
 <div class="container-fluid">
     <div class="row">
+        @if(!Request::is("login") && !Request::is("register"))
         @include('includes.sidebar')
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        @endif
+        <main class="{{ !Request::is('login') && !Request::is('register') ? 'col-md-9 ms-sm-auto col-lg-10 px-md-4' : ''}}">
             @yield('content')
         </main>
     </div>

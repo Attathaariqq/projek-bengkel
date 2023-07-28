@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
     public function get() 
     {
-
+        return view("auth.login");
     }
 
     public function auth(Request $req)
@@ -20,7 +20,7 @@ class AuthController extends Controller
 
     public function registerView()
     {
-
+        return view("auth.register");
     }
 
     public function register(Request $req, User $user)
