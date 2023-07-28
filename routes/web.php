@@ -40,7 +40,7 @@ Route::controller(ProductController::class)->name("product.")->group(function ()
 
 Route::controller(AuthController::class)->name('auth.')->group(function () {
     Route::get("/login", "get")->name("get");
-    Route::post("/login/auth", 'auth')->name('auth');
-    Route::get("/register", 'registerView')->name("register.view");
-    Route::post("/register/save", "registerSave")->name("register");
+    Route::post("/login/auth", "auth")->name("auth");
+    Route::get("/register", "registerView")->name("register.view");
+    Route::post("/register/save", "register")->name("register");
 });
