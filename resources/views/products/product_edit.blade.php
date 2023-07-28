@@ -1,7 +1,6 @@
 @extends('master')
 @section('title', 'List Produk')
 @section('content')
-    <p>Kita di halaman list produk</p>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Edit Produk</h1>
     </div>

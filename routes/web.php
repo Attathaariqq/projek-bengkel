@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,11 @@ Route::controller(ProductController::class)->name("product.")->group(function ()
     Route::get("/product/edit/{product}", "editView")->name("edit.view");
     Route::patch("/product/edit/save/{product}", "edit")->name("edit");
     Route::delete("/product/delete/{product}", "delete")->name("delete");
+});
+
+Route::controller(AuthController::class)->name('auth.')->group(function () {
+    Route::get("/login", "get")->name("get");
+    Route::post("/login/auth", 'auth')->name('auth');
+    Route::get("/register", 'registerView')->name("register.view");
+    Route::post("/register/save", "registerSave")->name("register");
 });
