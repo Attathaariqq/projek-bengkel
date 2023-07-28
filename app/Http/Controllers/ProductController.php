@@ -10,7 +10,8 @@ class ProductController extends Controller
 {
     public function get()
     {
-        $products = Product::all();
+        $products = Product::with('category')->get();
+        dd($products);
         return view('products.product' , ['products' => $products]);
     }
 
