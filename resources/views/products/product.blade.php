@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th>Nama</th>
+                    <th>Kategori</th>
                     <th>Harga</th>
                     <th>Jumlah</th>
                     <th>Aksi</th>
@@ -21,6 +22,7 @@
             @foreach($products as $product)
                     <tr>
                         <td>{{ $product->name }}</td>
+                        <td>{{ $product->category->name}}</td>
                         <td>Rp.{{ number_format($product->price, 0) }}</td>
                         <td>{{ $product->qty }}</td>
                         <td>
