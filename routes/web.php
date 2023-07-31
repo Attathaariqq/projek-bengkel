@@ -41,6 +41,10 @@ Route::controller(ProductController::class)->name("product.")->group(function ()
 Route::controller(AuthController::class)->name('auth.')->group(function () {
     Route::get("/login", "get")->name("get");
     Route::post("/login/auth", "auth")->name("auth");
-    Route::get("/register", "registerView")->name("register.view");
-    Route::post("/register/save", "register")->name("register");
+    Route::get("/user", "userView")->name("user");
+    Route::get("/user/add", "addUserView")->name("add.view");
+    Route::post("/user/add/save", "add")->name("add");
+    Route::patch("/user/edit/{user}", "editUserView")->name("edit.view");
+    Route::delete("/user/delete/{user}", "delete")->name("delete");
 });
+

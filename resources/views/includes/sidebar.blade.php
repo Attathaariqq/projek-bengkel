@@ -19,6 +19,12 @@
                     Product
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ route('auth.user') }}">
+                    <span data-feather="home"></span>
+                    Kelola User
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

@@ -31,13 +31,22 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
-    public function registerView()
+    public function userView(User $user)
     {
-        return view("auth.register");
+        $users = $user->get();
+        return view("users.user", ["users" => $users]);
     }
 
-    public function register(Request $req, User $user)
+    public function addUserView()
     {
+        return view("users.user_add");
+    }
 
+    public function add(Request $request, User $user)
+    {
+        $data = $request->all();
+        $data['password'] = bcrypt($data['password']);
+        $user->create($data);
+        return redirect()->route("auth.user");
     }
 }
