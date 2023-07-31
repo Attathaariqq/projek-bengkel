@@ -44,7 +44,8 @@ Route::controller(AuthController::class)->name('auth.')->group(function () {
     Route::get("/user", "userView")->name("user");
     Route::get("/user/add", "addUserView")->name("add.view");
     Route::post("/user/add/save", "add")->name("add");
-    Route::patch("/user/edit/{user}", "editUserView")->name("edit.view");
+    Route::get("/user/edit/{user}", "editUserView")->name("edit.view");
+    Route::patch("user/edit/save/{user}", "edit")->name("edit");
     Route::delete("/user/delete/{user}", "delete")->name("delete");
 });
 

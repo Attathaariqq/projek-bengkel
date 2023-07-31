@@ -49,4 +49,26 @@ class AuthController extends Controller
         $user->create($data);
         return redirect()->route("auth.user");
     }
+
+    public function editUserView(User $user)
+    {
+        return view("users.user_edit", ['user' => $user]);
+    }
+
+    public function edit(User $user, Request $request)
+    {
+        $data = $request->all();
+
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+        $user->update($data);
+        return redirect()->route("auth.user");
+    }
+
+    public function delete(User $user)
+    {
+        $user->delete();
+        return back();
+    }
 }

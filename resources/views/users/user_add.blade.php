@@ -7,6 +7,7 @@
 
     <form action="{{ route('auth.add') }}" method="POST" class="card card-body">
         @csrf
+        @method("PATCH")
         <div class="form-group mb-3`">
             <label>Nama <span class="text-danger">*</span></label>
             <input type="text" class="form-control" required placeholder="ex: Servis" name="name">
