@@ -25,6 +25,12 @@
                     Kelola User
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ route('customer.get') }}">
+                    <span data-feather="home"></span>
+                    Kelola Customer
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
