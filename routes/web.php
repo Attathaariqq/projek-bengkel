@@ -54,8 +54,8 @@ Route::controller(CustomerController::class)->name("customer.")->group(function 
    Route::get("/customer", "get")->name("get");
    Route::get("/customer/add", "addCustomerView")->name("add.view");
    Route::post("/customer/add/save", "add")->name("add");
-   Route::get("/customer/edit/{user}", "editCustomerView")->name("edit.view");
-   Route::patch("/customer/edit/save/{user}", "edit")->name("save");
-   Route::delete("/customer/delete/{user}", "delete")->name("delete");
+   Route::get("/customer/edit/{customer}", "editCustomerView")->name("edit.view");
+   Route::patch("/customer/edit/save/{customer}", "edit")->name("edit");
+   Route::delete("/customer/delete/{customer}", "delete")->name("delete");
 });
 
