@@ -31,6 +31,16 @@
                     Kelola Customer
                 </a>
             </li>
+            @if(\Illuminate\Support\Facades\Auth::check())
+                <li class="nav-item">
+                    <form action="" method="POST">
+                        <button class="btn btn-danger" aria-current="page" href="{{ route('customer.get') }}">
+                            <span data-feather="home"></span>
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            @endif
         </ul>
     </div>
 </nav>
