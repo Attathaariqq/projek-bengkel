@@ -18,15 +18,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($customers as $customer)
+            @foreach($orders as $order)
                 <tr>
-                    <td>{{ $customer->name }}</td>
-                    <td>{{ $customer->phone }}</td>
-                    <td>{{ $customer->address }}</td>
+                    <td>{{ $order->customers->name }}</td>
+                    <td>{{ $order->products->name }}</td>
+                    <td>Rp.{{ number_format($order->total, 0) }}</td>
                     <td>
-                        <a href="{{ route('customer.edit.view', $customer->id) }}" class="btn btn-warning">Edit</a>
-                        ||
-                        <form action="{{ route("customer.delete", $customer->id) }}" method="POST">
+                        <form action="{{ route("order.delete", $order->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger">Hapus</button>

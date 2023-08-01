@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Customer;
+use App\Models\Product;
 
 class Order extends Model
 {
@@ -11,13 +13,13 @@ class Order extends Model
 
     protected $fillable = ["customer_id", "product_id", "total"];
 
-    public function customer()
+    public function customers()
     {
-        $this->hasOne(Customer::class, 'id', 'customer_id');
+        return $this->hasOne(Customer::class, 'id', 'customer_id');
     }
 
-    public function product()
+    public function products()
     {
-        $this->hasOne(Product::class, "id", "product_id");
+        return $this->hasOne(Product::class, "id", "product_id");
     }
 }
