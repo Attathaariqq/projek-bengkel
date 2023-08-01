@@ -9,12 +9,12 @@
 
         <div class="col-lg-3 bg-primary card card-body">
             <h5 class="card-title text-white">Pemasukan</h5>
-            <h4 class="text-white fw-bold">Rp.0</h4>
+            <h4 class="text-white fw-bold">Rp.{{ number_format($sumOrder - 1000, 0) }}</h4>
         </div>
 
         <div class="col-lg-3 bg-success card card-body">
             <h5 class="card-title text-white">Total Order</h5>
-            <h4 class="text-white fw-bold">0 Order</h4>
+            <h4 class="text-white fw-bold">{{ $totalOrder }} Order</h4>
         </div>
 
     </div>

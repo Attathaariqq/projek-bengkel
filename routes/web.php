@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
@@ -19,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware("auth.check")->group(function () {
-    Route::get("", function () {
-        return view("dashboard");
-    })->name("dashboard");
+    Route::controller(DashboardController::class)->name("dashboard.")->group(function () {
+        Route::get("", "get")->name("get");
+    });
 
     Route::controller(CategoryController::class)->name("category.")->group(function (){
         Route::get("/category", "get")->name("get");
