@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -47,5 +48,14 @@ Route::controller(AuthController::class)->name('auth.')->group(function () {
     Route::get("/user/edit/{user}", "editUserView")->name("edit.view");
     Route::patch("user/edit/save/{user}", "edit")->name("edit");
     Route::delete("/user/delete/{user}", "delete")->name("delete");
+});
+
+Route::controller(CustomerController::class)->name("customer.")->group(function () {
+   Route::get("/customer", "get")->name("get");
+   Route::get("/customer/add", "addCustomerView")->name("add.view");
+   Route::post("/customer/add/save", "add")->name("add");
+   Route::get("/customer/edit/{user}", "editCustomerView")->name("edit.view");
+   Route::patch("/customer/edit/save/{user}", "edit")->name("save");
+   Route::delete("/customer/delete/{user}", "delete")->name("delete");
 });
 
