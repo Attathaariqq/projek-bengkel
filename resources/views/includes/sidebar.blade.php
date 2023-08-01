@@ -31,9 +31,16 @@
                     Kelola Customer
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ route('order.get') }}">
+                    <span data-feather="home"></span>
+                    Order
+                </a>
+            </li>
             @if(\Illuminate\Support\Facades\Auth::check())
                 <li class="nav-item">
-                    <form action="" method="POST">
+                    <form action="{{ route("auth.logout") }}" method="POST">
+                        @csrf
                         <button class="btn btn-danger" aria-current="page" href="{{ route('customer.get') }}">
                             <span data-feather="home"></span>
                             Logout

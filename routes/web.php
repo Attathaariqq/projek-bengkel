@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(["auth.check"])->group(function () {
+Route::middleware("auth.check")->group(function () {
     Route::get("", function () {
         return view("dashboard");
     })->name("dashboard");
@@ -42,13 +43,14 @@ Route::middleware(["auth.check"])->group(function () {
 
     Route::controller(AuthController::class)->name('auth.')->group(function () {
         Route::get("/login", "get")->name("get")->withoutMiddleware(["auth.check"]);
-        Route::post("/login/auth", "auth")->name("auth");
+        Route::post("/login/auth", "auth")->name("auth")->withoutMiddleware(["auth.check"]);
         Route::get("/user", "userView")->name("user");
         Route::get("/user/add", "addUserView")->name("add.view");
         Route::post("/user/add/save", "add")->name("add");
         Route::get("/user/edit/{user}", "editUserView")->name("edit.view");
         Route::patch("user/edit/save/{user}", "edit")->name("edit");
         Route::delete("/user/delete/{user}", "delete")->name("delete");
+        Route::post("/user/logout", "logout")->name("logout");
     });
 
     Route::controller(CustomerController::class)->name("customer.")->group(function () {
@@ -60,4 +62,10 @@ Route::middleware(["auth.check"])->group(function () {
         Route::delete("/customer/delete/{customer}", "delete")->name("delete");
     });
 
+    Route::controller(OrderController::class)->name("order.")->group(function () {
+        Route::get("/order", "get")->name("get");
+        Route::get("/order/add", "addOrderView")->name("add.view");
+        Route::post("/order/add/save", "add")->name("add");
+        Route::delete("/order/delete/{order}", "delete")->name("delete");
+    });
 });

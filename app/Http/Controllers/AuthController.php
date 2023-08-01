@@ -20,7 +20,6 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
@@ -70,5 +69,16 @@ class AuthController extends Controller
     {
         $user->delete();
         return back();
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route("auth.get");
     }
 }

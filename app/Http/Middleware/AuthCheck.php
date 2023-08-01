@@ -17,9 +17,10 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
+        if (Auth::check()) {
+            return $next($request);
+        } else  {
             return redirect()->route("auth.get");
         }
-        return $next($request);
     }
 }
